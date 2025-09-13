@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gaurav_singhs",
+  "info": {
+    "singularName": "gaurav-singh",
+    "pluralName": "gaurav-singhs",
+    "displayName": "Gaurav Singh"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
