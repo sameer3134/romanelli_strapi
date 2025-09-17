@@ -402,6 +402,40 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiClientSuccessClientSuccess
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'client_successes';
+  info: {
+    displayName: 'Client-Success';
+    pluralName: 'client-successes';
+    singularName: 'client-success';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Auction: Schema.Attribute.String;
+    Bidding: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Item_no: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::client-success.client-success'
+    > &
+      Schema.Attribute.Private;
+    Location: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Size: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGauravSinghGauravSingh extends Struct.CollectionTypeSchema {
   collectionName: 'gaurav_singhs';
   info: {
@@ -939,6 +973,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::client-success.client-success': ApiClientSuccessClientSuccess;
       'api::gaurav-singh.gaurav-singh': ApiGauravSinghGauravSingh;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
